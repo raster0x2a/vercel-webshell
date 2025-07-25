@@ -12,7 +12,7 @@ commandInput.addEventListener('keydown', async (event) => {
         commandInput.value = '';
 
         if (command.toLowerCase() === 'clear') {
-            output.textContent = 'Welcome to Vercel Web Shell!';
+            output.textContent = 'Welcome to rashell!';
             terminal.scrollTop = terminal.scrollHeight;
             return;
         }
