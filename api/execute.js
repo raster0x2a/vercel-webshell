@@ -24,7 +24,7 @@ export default function handler(req, res) {
     return res.status(400).json({ error: 'Invalid command provided.' });
   }
 
-  execSync(command, { timeout: 3000 }, (error, stdout, stderr) => {
+  exec(command, { timeout: 3000 }, (error, stdout, stderr) => {
     if (error) {
       // 終了コードが0でない場合もエラーとして扱う
       return res.status(500).json({ output: stderr || error.message });
