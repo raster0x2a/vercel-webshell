@@ -25,13 +25,13 @@ export default function handler(req, res) {
   }
 
   // コマンドと引数を分割
-  const [cmd, ...args] = command.trim().split(/\s+/);
+  //const [cmd, ...args] = command.trim().split(/\s+/);
   
   // VercelのServerless Functionは書き込み不可のファイルシステムなので、
   // 'ls -F' のような引数は安全と見なせる
-  const fullCommand = `${cmd} ${args.join(' ')}`;
+  //const fullCommand = `${cmd} ${args.join(' ')}`;
 
-  exec(fullCommand, { timeout: 3000 }, (error, stdout, stderr) => {
+  exec(command, { timeout: 3000 }, (error, stdout, stderr) => {
     if (error) {
       // 終了コードが0でない場合もエラーとして扱う
       return res.status(500).json({ output: stderr || error.message });
