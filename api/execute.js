@@ -11,7 +11,7 @@ const ALLOWED_COMMANDS = new Set([
 export default function handler(req, res) {
   // pass check
   const hash = crypto.createHash('sha256');
-  hash.update(req.body.p);
+  hash.update(req.query.p);
   const hashedData = hash.digest('hex');
   if (hashedData !== SECRET_HASH) {
     return res.status(401).json({ error: 'Unauthorized' });
