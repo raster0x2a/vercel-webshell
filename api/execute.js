@@ -2,12 +2,6 @@ const { exec } = require('child_process');
 
 // 実行を許可する安全なコマンドのホワイトリスト
 const ALLOWED_COMMANDS = new Set([
-  'ls',
-  'pwd',
-  'whoami',
-  'date',
-  'echo',
-  'uname',
 ]);
 
 export default function handler(req, res) {
