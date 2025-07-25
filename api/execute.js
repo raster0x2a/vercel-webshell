@@ -1,10 +1,22 @@
 const { exec } = require('child_process');
+const crypto = require('crypto');
+
+
+const SECRET_HASH = "4be7de85c6bad019834ef6843189edd6a5710e800806794349658fcafdc83af9";
 
 // 実行を許可する安全なコマンドのホワイトリスト
 const ALLOWED_COMMANDS = new Set([
 ]);
 
 export default function handler(req, res) {
+  // pass check
+  const hash = crypto.createHash('sha256');
+  hash.update(req.body.p);
+  const hashedData = hash.digest('hex');
+  if (hashedData !== SECRET_HASH) {
+    return res.status(401).json({ error: 'Unauthorized' });
+  }
+  
   // POSTメソッド以外は許可しない
   if (req.method !== 'POST') {
     return res.status(405).json({ error: 'Method Not Allowed' });
