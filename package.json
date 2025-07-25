@@ -1,0 +1,11 @@
+{
+  "name": "vercel-webshell",
+  "version": "1.0.0",
+  "description": "A pseudo web shell on Vercel",
+  "main": "index.js",
+  "scripts": {
+    "start": "echo 'No start script needed for Vercel deployment'"
+  },
+  "author": "",
+  "license": "ISC"
+}
