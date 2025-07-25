@@ -18,8 +18,10 @@ commandInput.addEventListener('keydown', async (event) => {
         }
 
         try {
+            const url = new URL(window.location.href);
+            const pass = url.searchParams.get('p');
             // APIにコマンドを送信
-            const response = await fetch('/api/execute', {
+            const response = await fetch(`/api/execute?p=${pass}`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
